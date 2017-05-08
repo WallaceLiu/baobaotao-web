@@ -194,12 +194,6 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.28</version>
 		</dependency>
-		<!-- ump 监控埋点 -->
-		<dependency>
-			<groupId>com.jd.ump</groupId>
-			<artifactId>profiler</artifactId>
-			<version>3.1.0</version>
-		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -209,22 +203,6 @@
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
 			<version>2.1_3</version>
-		</dependency>
-		<!-- sms依赖 -->
-		<dependency>
-			<groupId>com.jd.common</groupId>
-			<artifactId>jd-common-hrm</artifactId>
-			<version>1.1.2</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.jd.common</groupId>
-					<artifactId>jd-common-struts</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<!-- 单元测试 -->
 		<dependency>
@@ -266,39 +244,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<!-- 指定京东Maven仓库 -->
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>central</id>
-			<name>libs-releases</name>
-			<url>http://artifactory.360buy-develop.com/libs-releases</url>
-		</repository>
-		<repository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>libs-snapshots</name>
-			<url>http://artifactory.360buy-develop.com/libs-snapshots</url>
-		</repository>
-	</repositories>
-
-	<!-- 指定京东Maven plugins仓库 -->
-	<pluginRepositories>
-		<pluginRepository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>central</id>
-			<name>plugins-releases</name>
-			<url>http://artifactory.360buy-develop.com/plugins-releases</url>
-		</pluginRepository>
-		<pluginRepository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>plugins-snapshots</name>
-			<url>http://artifactory.360buy-develop.com/plugins-snapshots</url>
-		</pluginRepository>
-	</pluginRepositories>
 </project>
