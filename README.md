@@ -1,2 +1,2 @@
 # baobaotao-web
-Spring 测试
+1. JavaConfig测试
