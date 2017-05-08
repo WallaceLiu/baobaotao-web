@@ -9,7 +9,7 @@
 
 	<!-- BoneCP configuration -->
 	<bean id="abstractDataSource" abstract="true"
-		class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+	class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
 		<property name="idleConnectionTestPeriodInMinutes" value="${jdbc.idleConnectionTestPeriod}" />
 		<property name="idleMaxAgeInMinutes" value="${jdbc.idleMaxAge}" />

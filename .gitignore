@@ -7,3 +7,5 @@
 ./metadata
 */target
 */.settings
+*.log
+*/*.log

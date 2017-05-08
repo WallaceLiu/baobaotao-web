@@ -11,7 +11,7 @@
 	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Encoding" value="UTF-8" />
 		<param name="File"
-			value="/export/home/tomcat/logs/protal_test.jd.com/protal_test.log" /> <!-- 日志路径，根据实际情况修改 -->
+			value="log.log" /> <!-- 日志路径，根据实际情况修改 -->
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern"
 				value="[%5p] [%d{yyyy-MM-dd HH:mm:ss SSS}] [%t] (%F:%L) %m%n" />
