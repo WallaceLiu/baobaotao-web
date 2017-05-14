@@ -27,7 +27,7 @@
 		mapping="/static/**"
 		cache-period="864000" /><!-- 24 * 3600 * 10 -->
 
-	<bean
+<!-- 	<bean
 		id="velocityViewResolver"
 		class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
 		<property
@@ -51,10 +51,10 @@
 		<property
 			name="contentType"
 			value="text/html;charset=UTF-8" />
-	</bean>
+	</bean> -->
 
 	<!-- locale related -->
-	<bean
+<!-- 	<bean
 		id="localeResolver"
 		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
 		<property
@@ -66,10 +66,10 @@
 		<property
 			name="cookieMaxAge"
 			value="2147483647" />
-	</bean>
+	</bean> -->
 
 	<!-- Access resource bundles with the specified basename -->
-	<bean
+<!-- 	<bean
 		id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property
@@ -78,7 +78,7 @@
 		<property
 			name="cacheSeconds"
 			value="5" />
-	</bean>
+	</bean> -->
 
 
 </beans>
