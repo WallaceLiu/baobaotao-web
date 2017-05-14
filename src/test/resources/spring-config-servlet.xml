@@ -14,71 +14,12 @@
     http://www.springframework.org/schema/aop/spring-aop.xsd"
 	default-autowire="byName">
 
-	<!-- mvc controller -->
+	<!-- context:component-scan 通过base-package属性配置spring需要自动注入的哪个基包， 这样@Controller 
+		@Service @Repository三个注解就会起作用。 -->
 	<context:component-scan base-package="com.baobao.web" />
+	<!-- aop:aspectj-autoproxy 声明自动为spring容器中那些配置@aspectJ切面的bean创建代理 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
-	<context:annotation-config />
 
 	<!-- <mvc:default-servlet-handler /> -->
-
-	<!-- static resources -->
-	<mvc:resources
-		location="/static/"
-		mapping="/static/**"
-		cache-period="864000" /><!-- 24 * 3600 * 10 -->
-
-<!-- 	<bean
-		id="velocityViewResolver"
-		class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
-		<property
-			name="layoutUrl"
-			value="layout/default.vm" />
-		<property
-			name="cache"
-			value="false" />
-		<property
-			name="suffix"
-			value=".vm" />
-		<property
-			name="exposeSpringMacroHelpers"
-			value="true" />
-		<property
-			name="dateToolAttribute"
-			value="dateTool" />
-		<property
-			name="numberToolAttribute"
-			value="numberTool" />
-		<property
-			name="contentType"
-			value="text/html;charset=UTF-8" />
-	</bean> -->
-
-	<!-- locale related -->
-<!-- 	<bean
-		id="localeResolver"
-		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-		<property
-			name="cookieName"
-			value="_clientlocale" />
-		<property
-			name="defaultLocale"
-			value="zh_CN" />
-		<property
-			name="cookieMaxAge"
-			value="2147483647" />
-	</bean> -->
-
-	<!-- Access resource bundles with the specified basename -->
-<!-- 	<bean
-		id="messageSource"
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property
-			name="basenames"
-			value="/WEB-INF/i18n/content,/WEB-INF/i18n/validation,/WEB-INF/i18n/asset,/WEB-INF/i18n/enum" />
-		<property
-			name="cacheSeconds"
-			value="5" />
-	</bean> -->
-
 
 </beans>
