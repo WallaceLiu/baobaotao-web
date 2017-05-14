@@ -14,12 +14,6 @@
     http://www.springframework.org/schema/aop/spring-aop.xsd"
 	default-autowire="byName">
 
-	<!-- context:component-scan 通过base-package属性配置spring需要自动注入的哪个基包， 这样@Controller 
-		@Service @Repository三个注解就会起作用。 -->
-	<context:component-scan base-package="com.baobao.web" />
-	<!-- aop:aspectj-autoproxy 声明自动为spring容器中那些配置@aspectJ切面的bean创建代理 -->
-	<aop:aspectj-autoproxy proxy-target-class="true" />
 
-	<!-- <mvc:default-servlet-handler /> -->
 
 </beans>
