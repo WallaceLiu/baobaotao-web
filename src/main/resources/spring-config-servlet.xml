@@ -24,8 +24,6 @@
 
 	<mvc:default-servlet-handler />
 
-
-
 	<!-- template view -->
 	<bean
 		id="velocityConfig"
@@ -132,21 +130,6 @@
 		<property
 			name="cacheSeconds"
 			value="5" />
-	</bean>
-
-	<!-- exception related -->
-	<!-- all exception handler will be registered by DispatcherServlet default 
-		(detectAllHandlerExceptionResolvers=true) -->
-	<bean
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property
-			name="defaultErrorView"
-			value="common/error" />
-		<property name="exceptionMappings">
-			<props>
-				<prop key="com.jd.common.hrm.IllegalHrmPrivilegeException">error/access-denied</prop>
-			</props>
-		</property>
 	</bean>
 
 </beans>
