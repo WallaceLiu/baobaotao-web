@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -14,15 +15,20 @@ import com.baobaotao.web.domain.UserDomain;
 import com.google.common.base.Function;
 import com.google.common.base.Functions;
 import com.google.common.base.Predicate;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.SetMultimap;
 import com.google.common.collect.Collections2;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultiset;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
+import com.google.common.collect.Sets;
 
-public class TestGuavaUtil {
+public class TestGuavaFunc {
 
 	@Test
-	public void test3() {
+	public void testFunction() {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("love", 1);
 		map.put("miss", 2);
