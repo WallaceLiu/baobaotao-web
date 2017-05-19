@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -66,5 +70,43 @@ public class TestUserDao extends TestBaseDao {
 		int cnt = users.size();
 		cnt = 1;
 		assertTrue(true);
+	}
+
+	/**
+	 * 所有测试开始之前运行
+	 * 
+	 * 必须为静态方法
+	 */
+	@BeforeClass
+	public static void setUpBeforeClass() {
+		System.out.println("访问test2数据库...");
+	}
+
+	/**
+	 * 每一个测试方法之前运行
+	 * 
+	 * @throws Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		System.out.println("测试中...");
+	}
+
+	/**
+	 * 每一个测试方法之后运行
+	 */
+	@After
+	public void tearDown() {
+		System.out.println("...");
+	}
+
+	/**
+	 * 所有测试结束之后运行
+	 * 
+	 * 必须为静态方法
+	 */
+	@AfterClass
+	public static void tearDownAfterClass() {
+		System.out.println("访问test2数据库...END");
 	}
 }
