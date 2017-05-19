@@ -1,4 +1,4 @@
-package com.baobaotao.web.service;
+package com.baobaotao.web.service.test;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.baobaotao.web.dao.UserDao;
+import com.baobaotao.web.dao.test.UserDao;
 import com.baobaotao.web.domain.UserDomain;
 
 @Service

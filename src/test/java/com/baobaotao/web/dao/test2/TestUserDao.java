@@ -1,7 +1,8 @@
-package com.baobaotao.web.service;
+package com.baobaotao.web.dao.test2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,23 +10,23 @@ import java.util.Map;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.baobaotao.web.dao.base.TestBaseDao;
 import com.baobaotao.web.domain.UserDomain;
-import com.baobaotao.web.service.test.UserService;
 
-public class TestUserService extends TestBaseService {
+public class TestUserDao extends TestBaseDao {
 	@Autowired
-	private UserService userService;
+	private User2Dao userDao;
 
 	@Test
 	public void testGetUsers() {
-		List<Map<String, Object>> l = userService.getUsers();
+		List<Map<String, Object>> l = userDao.getUsers();
 		int cnt = l.size();
 		assertTrue(cnt > 0);
 	}
 
 	@Test
 	public void testGetUsersDomain() {
-		List<UserDomain> users = userService.getUsersDomain();
+		List<UserDomain> users = userDao.getUsersDomain();
 		for (UserDomain user : users) {
 			System.out.println(String.format("user:%s	%s	%s", user.getId(),
 					user.getName(), user.getAge()));
@@ -38,7 +39,7 @@ public class TestUserService extends TestBaseService {
 	public void testGetUserById() {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", "1");
-		Map<String, Object> l = userService.getUserById(params);
+		Map<String, Object> l = userDao.getUserById(params);
 		String name = (String) l.get("name");
 		assertTrue(!name.isEmpty());
 	}
@@ -47,8 +48,23 @@ public class TestUserService extends TestBaseService {
 	public void testGetUserById2() {
 		UserDomain u = new UserDomain();
 		u.setId(1);
-		UserDomain ru = userService.getUserById2(u);
+		UserDomain ru = userDao.getUserById2(u);
 		String name = ru.getName();
 		assertTrue(!name.isEmpty());
+	}
+
+	@Test
+	public void testAddBatch() {
+		List<UserDomain> users = new ArrayList<UserDomain>();
+		users.add(new UserDomain("1", 1));
+		users.add(new UserDomain("2", 2));
+		users.add(new UserDomain("3", 3));
+		users.add(new UserDomain("4", 4));
+		users.add(new UserDomain("5", 5));
+		userDao.addBatch(users);
+
+		int cnt = users.size();
+		cnt = 1;
+		assertTrue(true);
 	}
 }

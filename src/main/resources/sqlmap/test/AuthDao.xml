@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.baobaotao.web.dao.AuthDao">
+<mapper namespace="com.baobaotao.web.dao.test.AuthDao">
 	<select
 		id="add"
-		parameterType="com.baobaotao.web.dao.AuthDao">
+		parameterType="com.baobaotao.web.domain.AuthDomain">
 		INSERT INTO t_auth (
 		object_id,
 		object_type,
@@ -17,7 +17,7 @@
 
 	<select
 		id="del"
-		parameterType="com.baobaotao.web.dao.AuthDao">
+		parameterType="com.baobaotao.web.domain.AuthDomain">
 		delete
 		from
 		t_auth

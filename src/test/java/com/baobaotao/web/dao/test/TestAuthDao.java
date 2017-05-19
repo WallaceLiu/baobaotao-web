@@ -1,19 +1,18 @@
-package com.baobaotao.web.dao;
+package com.baobaotao.web.dao.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.baobaotao.web.common.JsonUtil;
+import com.baobaotao.web.dao.base.TestBaseDao;
+import com.baobaotao.web.dao.test.AuthDao;
 import com.baobaotao.web.domain.AuthDomain;
-import com.baobaotao.web.domain.UserDomain;
 
 public class TestAuthDao extends TestBaseDao {
 

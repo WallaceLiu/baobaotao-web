@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baobaotao.web.dao.test.UserDao">
+	<select
+		id="getUsers"
+		resultType="HashMap">
+		SELECT
+		*
+		FROM
+		t_user
+	</select>
+	<select
+		id="getUsersDomain"
+		resultType="com.baobaotao.web.domain.UserDomain">
+		SELECT
+		*
+		FROM
+		t_user
+	</select>
+	<select
+		id="getUserById"
+		parameterType="HashMap"
+		resultType="HashMap">
+		SELECT
+		*
+		FROM
+		t_user
+		WHERE id = #{id}
+	</select>
+	<select
+		id="getUserById2"
+		parameterType="com.baobaotao.web.domain.UserDomain"
+		resultType="com.baobaotao.web.domain.UserDomain">
+		SELECT
+		*
+		FROM
+		t_user
+		WHERE id = #{id}
+	</select>
+	<select
+		id="add"
+		parameterType="com.baobaotao.web.domain.UserDomain"
+		resultType="com.baobaotao.web.domain.UserDomain">
+		INSERT INTO t_user (
+		name,
+		age
+		)
+		VALUES
+		(#{name},
+		#{age})
+	</select>
+	<select
+		id="addBatch"
+		parameterType="java.util.List">
+		INSERT INTO t_user (
+		name,
+		age
+		)
+		VALUES
+		<foreach
+			collection="list"
+			item="item"
+			index="index"
+			separator=",">
+			(#{item.name},#{item.age})
+		</foreach>
+	</select>
+	<select
+		id="delById"
+		parameterType="String"
+		resultType="com.baobaotao.web.domain.UserDomain">
+		delete
+		from
+		t_user
+		where id = #{id}
+	</select>
+</mapper>

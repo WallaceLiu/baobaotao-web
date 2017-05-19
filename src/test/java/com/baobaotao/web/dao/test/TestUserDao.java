@@ -1,6 +1,6 @@
-package com.baobaotao.web.dao;
+package com.baobaotao.web.dao.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +10,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.baobaotao.web.dao.base.TestBaseDao;
 import com.baobaotao.web.domain.UserDomain;
 
 public class TestUserDao extends TestBaseDao {
@@ -62,8 +63,6 @@ public class TestUserDao extends TestBaseDao {
 		users.add(new UserDomain("5", 5));
 		userDao.addBatch(users);
 
-		int cnt = users.size();
-		cnt = 1;
 		assertTrue(true);
 	}
 }
