@@ -144,3 +144,5 @@
 	</bean>
 </beans>
 ```
+## Guava
+1. 测试 Lamdba
