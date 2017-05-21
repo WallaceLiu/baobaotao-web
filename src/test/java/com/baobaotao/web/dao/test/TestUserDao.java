@@ -17,16 +17,11 @@ public class TestUserDao extends TestBaseDao {
     private UserDao userDao;
 
     @Test(timeout = 10000)
-    public void testTruncate() {
+    public void test() {
         System.out.println("测试 truncate...");
 
         userDao.truncate();
 
-        assertTrue(true);
-    }
-
-    @Test(timeout = 10000)
-    public void testAddBatch() {
         System.out.println("测试 addBatch...");
 
         List<UserDomain> users = new ArrayList<UserDomain>();
@@ -37,50 +32,36 @@ public class TestUserDao extends TestBaseDao {
         users.add(new UserDomain(5, "5", 5));
         userDao.addBatch(users);
 
-        assertTrue(true);
-    }
-
-    @Test(timeout = 10000)
-    public void testGetUsers() {
         System.out.println("测试 getUsers...");
-        List<Map<String, Object>> l = userDao.getUsers();
-        int cnt = l.size();
-        assertTrue(cnt > 0);
-    }
 
-    @Test(timeout = 10000)
-    public void testGetUsersDomain() {
+        List<Map<String, Object>> l = userDao.getUsers();
+        assertTrue(l.size() > 0);
+
         System.out.println("测试 getUsersDomain...");
 
-        List<UserDomain> users = userDao.getUsersDomain();
+        users = userDao.getUsersDomain();
         for (UserDomain user : users) {
             System.out.println(String.format("user:%s	%s	%s", user.getId(),
                     user.getName(), user.getAge()));
         }
-        int cnt = users.size();
-        assertTrue(cnt > 0);
-    }
+        assertTrue(users.size() > 0);
 
-    @Test(timeout = 10000)
-    public void testGetUserById() {
         System.out.println("测试 getUserById...");
 
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("id", "1");
-        Map<String, Object> l = userDao.getUserById(params);
-        String name = (String) l.get("name");
-        assertTrue(!name.isEmpty());
-    }
+        Map<String, Object> o = new HashMap<String, Object>();
+        o.put("id", "1");
+        Map<String, Object> l_m = userDao.getUserById(o);
+        assertTrue(!l_m.get("name").toString().isEmpty());
 
-    @Test(timeout = 10000)
-    public void testGetUserById2() {
         System.out.println("测试 getUserById2...");
 
         UserDomain u = new UserDomain();
         u.setId(1);
         UserDomain ru = userDao.getUserById2(u);
-        String name = ru.getName();
-        assertTrue(!name.isEmpty());
+        assertTrue(!ru.getName().isEmpty());
+
+
+        assertTrue(true);
     }
 
     /**
