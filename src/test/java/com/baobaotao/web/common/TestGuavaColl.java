@@ -14,15 +14,16 @@ import static org.junit.Assert.assertTrue;
 
 public class TestGuavaColl {
 
+    private static final List<Person> l = Lists.newArrayList(new Person(1, 1, "a",
+                    "46546", 1, 20), new Person(2, 1, "ab", "46546", 0, 30),
+            new Person(3, 1, "abc", "46546", 0, 25), new Person(4, 1,
+                    "aef", "46546", 1, 50), new Person(5, 1, "ade",
+                    "46546", 0, 27),
+            new Person(6, 1, "acc", "46546", 1, 29), new Person(7, 1,
+                    "add", "46546", 0, 33));
+
     @Test
     public void testFilter() {
-        List<Person> l = Lists.newArrayList(new Person(1, 1, "a",
-                        "46546", 1, 20), new Person(2, 1, "ab", "46546", 0, 30),
-                new Person(3, 1, "abc", "46546", 0, 25), new Person(4, 1,
-                        "aef", "46546", 1, 50), new Person(5, 1, "ade",
-                        "46546", 0, 27),
-                new Person(6, 1, "acc", "46546", 1, 29), new Person(7, 1,
-                        "add", "46546", 0, 33));
 
         ImmutableMultiset<Person> r = ImmutableMultiset.copyOf(Collections2
                 .filter(l, new Predicate<Person>() {
@@ -37,13 +38,6 @@ public class TestGuavaColl {
 
     @Test
     public void testTansform() {
-        List<Person> l = Lists.newArrayList(new Person(1, 1, "a",
-                        "46546", 1, 20), new Person(2, 1, "ab", "46546", 0, 30),
-                new Person(3, 1, "abc", "46546", 0, 25), new Person(4, 1,
-                        "aef", "46546", 1, 50), new Person(5, 1, "ade",
-                        "46546", 0, 27),
-                new Person(6, 1, "acc", "46546", 1, 29), new Person(7, 1,
-                        "add", "46546", 0, 33));
 
         ImmutableMultiset<Person> r = ImmutableMultiset.copyOf(Collections2.transform(l, new Function<Person, Person>() {
             @Override
