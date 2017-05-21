@@ -7,7 +7,6 @@
         default-autowire="byName">
     <!--Instantiation with a constructor-->
     <bean id="exampleBean" class="com.baobaotao.web.IntBeans.ExampleBean"/>
-
     <bean name="anotherExample" class="com.baobaotao.web.IntBeans.ExampleBeanTwo"/>
 
     <!--Instantiation with a static factory method-->
