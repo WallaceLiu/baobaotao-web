@@ -64,7 +64,7 @@ public class TestUserDao extends TestBaseDao {
 		assertTrue(!name.isEmpty());
 	}
 
-	@Test(timeout = 1)
+	@Test(timeout = 10000)
 	public void testAddBatch() {
 		System.out.println("测试 addBatch...");
 
