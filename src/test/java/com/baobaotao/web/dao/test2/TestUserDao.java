@@ -18,15 +18,10 @@ public class TestUserDao extends TestBaseDao {
 
 
     @Test
-    public void testTruncate() {
+    public void test() {
 
         userDao.truncate();
 
-        assertTrue(true);
-    }
-
-    @Test
-    public void testAddBatch() {
         List<UserDomain> users = new ArrayList<UserDomain>();
         users.add(new UserDomain(1, "1", 1));
         users.add(new UserDomain(2, "2", 2));
@@ -35,45 +30,28 @@ public class TestUserDao extends TestBaseDao {
         users.add(new UserDomain(5, "5", 5));
         userDao.addBatch(users);
 
-        int cnt = users.size();
-        cnt = 1;
-        assertTrue(true);
-    }
+        assertTrue(users.size() >= 0);
 
-    @Test
-    public void testGetUsers() {
         List<Map<String, Object>> l = userDao.getUsers();
         int cnt = l.size();
-        assertTrue(cnt > 0);
-    }
+        assertTrue(l.size() >= 0);
 
-    @Test
-    public void testGetUsersDomain() {
-        List<UserDomain> users = userDao.getUsersDomain();
+        users = userDao.getUsersDomain();
         for (UserDomain user : users) {
             System.out.println(String.format("user:%s	%s	%s", user.getId(),
                     user.getName(), user.getAge()));
         }
-        int cnt = users.size();
-        assertTrue(cnt > 0);
-    }
+        assertTrue(users.size() > 0);
 
-    @Test
-    public void testGetUserById() {
         Map<String, Object> o = new HashMap<String, Object>();
         o.put("id", "1");
-        Map<String, Object> l = userDao.getUserById(o);
-        String name = (String) l.get("name");
-        assertTrue(!name.isEmpty());
-    }
+        Map<String, Object> l_m = userDao.getUserById(o);
+        assertTrue(!l_m.get("name").toString().isEmpty());
 
-    @Test
-    public void testGetUserById2() {
         UserDomain u = new UserDomain();
         u.setId(1);
         UserDomain ru = userDao.getUserById2(u);
-        String name = ru.getName();
-        assertTrue(!name.isEmpty());
+        assertTrue(!ru.getName().isEmpty());
     }
 
     /**

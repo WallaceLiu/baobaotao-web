@@ -18,11 +18,9 @@ public class TestUserDao extends TestBaseDao {
 
     @Test(timeout = 10000)
     public void test() {
-        System.out.println("测试 truncate...");
-
         userDao.truncate();
 
-        System.out.println("测试 addBatch...");
+        System.out.println("truncate->true");
 
         List<UserDomain> users = new ArrayList<UserDomain>();
         users.add(new UserDomain(1, "1", 1));
@@ -32,36 +30,30 @@ public class TestUserDao extends TestBaseDao {
         users.add(new UserDomain(5, "5", 5));
         userDao.addBatch(users);
 
-        System.out.println("测试 getUsers...");
+        System.out.println("addBatch->true");
 
         List<Map<String, Object>> l = userDao.getUsers();
         assertTrue(l.size() > 0);
 
-        System.out.println("测试 getUsersDomain...");
+        System.out.println("getUsers->true");
 
         users = userDao.getUsersDomain();
-        for (UserDomain user : users) {
-            System.out.println(String.format("user:%s	%s	%s", user.getId(),
-                    user.getName(), user.getAge()));
-        }
         assertTrue(users.size() > 0);
 
-        System.out.println("测试 getUserById...");
+        System.out.println("getUsersDomain->true");
 
         Map<String, Object> o = new HashMap<String, Object>();
         o.put("id", "1");
         Map<String, Object> l_m = userDao.getUserById(o);
         assertTrue(!l_m.get("name").toString().isEmpty());
-
-        System.out.println("测试 getUserById2...");
+        System.out.println("getUserById->true");
 
         UserDomain u = new UserDomain();
         u.setId(1);
         UserDomain ru = userDao.getUserById2(u);
         assertTrue(!ru.getName().isEmpty());
 
-
-        assertTrue(true);
+        System.out.println("getUserById2->true");
     }
 
     /**
