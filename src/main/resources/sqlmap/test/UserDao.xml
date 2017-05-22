@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.baobaotao.web.dao.test.UserDao">
-
-<!-- 	<typeAliases>
-		<typeAlias
-			alias="User"
-			type="com.baobaotao.web.domain.UserDomain" />
-	</typeAliases> -->
-
 	<select
 		id="getUsers"
 		resultType="HashMap">
@@ -80,5 +73,9 @@
 		from
 		t_user
 		where id = #{id}
+	</select>
+	<select id="truncate">
+		truncate table
+		t_user
 	</select>
 </mapper>
