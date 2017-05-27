@@ -9,6 +9,7 @@
 */.settings
 *.log
 */*.log
+*.iml
 .idea/dataSources.local.xml
 .idea/dataSources.xml
 .idea/dataSources/
