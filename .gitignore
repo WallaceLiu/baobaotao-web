@@ -1,7 +1,7 @@
 /target
 /bin
 /.settings
-*.log
+*.log.*
 *.iml
 .idea/artifacts/baobaotao_web_war.xml
 .idea/artifacts/baobaotao_web_war_exploded.xml
