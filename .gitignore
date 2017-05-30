@@ -2,7 +2,9 @@
 /bin
 /.settings
 *.log.*
+log.log
 *.iml
 .idea/artifacts/baobaotao_web_war.xml
 .idea/artifacts/baobaotao_web_war_exploded.xml
+.idea/artifacts/
 src/main/scala/
