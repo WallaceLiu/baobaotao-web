@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+       		http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-autowire="byName">
+
+    <bean id="foo" class="com.baobaotao.web.di.Foo">
+        <constructor-arg ref="bar"/>
+        <constructor-arg ref="baz"/>
+    </bean>
+
+    <bean id="bar" class="com.baobaotao.web.di.Bar"/>
+    <bean id="baz" class="com.baobaotao.web.di.Baz"/>
+
+    <bean id="eb" class="com.baobaotao.web.di.ExampleBean">
+        <constructor-arg type="int" value="7500000"/>
+        <constructor-arg type="java.lang.String" value="42"/>
+    </bean>
+
+    <bean id="eb2" class="com.baobaotao.web.di.ExampleBean">
+        <constructor-arg index="0" value="7500000"/>
+        <constructor-arg index="1" value="42"/>
+    </bean>
+
+    <bean id="eb3" class="com.baobaotao.web.di.ExampleBean">
+        <constructor-arg name="years" value="7500000"/>
+        <constructor-arg name="ultimateAnswer" value="42"/>
+    </bean>
+
+
+    <bean id="exampleBeanSetter" class="com.baobaotao.web.di.ExampleBeanSetter">
+        <!-- setter injection using the nested <ref/> element -->
+        <property name="beanOne">
+            <ref bean="anotherExampleBean"/>
+        </property>
+        <!-- setter injection using the neater 'ref' attribute -->
+        <property name="beanTwo" ref="yetAnotherBean"/>
+        <property name="integerProperty" value="1"/>
+    </bean>
+
+    <bean id="anotherExampleBean" class="com.baobaotao.web.di.Bar"/>
+    <bean id="yetAnotherBean" class="com.baobaotao.web.di.Baz"/>
+
+
+    <bean id="moreComplexObject" class="com.baobaotao.web.di.ComplexObject">
+        <!-- results in a setAdminEmails(java.util.Properties) call -->
+        <property name="adminEmails">
+            <props>
+                <prop key="administrator">administrator@example.org</prop>
+                <prop key="support">support@example.org</prop>
+                <prop key="development">development@example.org</prop>
+            </props>
+        </property>
+        <!-- results in a setSomeList(java.util.List) call -->
+        <property name="someList">
+            <list>
+                <value>a list element followed by a reference</value>
+                <ref bean="anotherExampleBean"/>
+            </list>
+        </property>
+        <!-- results in a setSomeMap(java.util.Map) call -->
+        <property name="someMap">
+            <map>
+                <entry key="an entry" value="just some string"/>
+                <entry key="a ref" value-ref="anotherExampleBean"/>
+            </map>
+        </property>
+        <!-- results in a setSomeSet(java.util.Set) call -->
+        <property name="someSet">
+            <set>
+                <value>just some string</value>
+                <ref bean="anotherExampleBean"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="springContextUtil" class="com.baobaotao.web.SpringContextUtil" scope="singleton"/>
+</beans>
