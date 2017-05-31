@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="baobaotao" />
+        <module name="baobaotao-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="baobaotao" target="1.6" />
+      <module name="baobaotao-web" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

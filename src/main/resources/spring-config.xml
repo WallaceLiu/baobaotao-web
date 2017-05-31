@@ -40,4 +40,5 @@
     <import resource="classpath:spring-config-servlet.xml"/>
     <import resource="classpath:spring-config-dao.xml"/>
     <import resource="classpath:spring-intbean.xml"/>
+    <import resource="classpath:spring-di.xml"/>
 </beans>
