@@ -15,13 +15,12 @@
 	default-autowire="byName">
 
 	<!-- mvc controller -->
-	<context:component-scan base-package="com.baobaotao.web" />
+	<context:component-scan base-package="com.baobaotao.web2" />
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<context:annotation-config />
 
 	<!-- JSR-303 support will be detected on classpath and enabled automatically -->
-	<mvc:annotation-driven conversion-service="conversionService" />
-
+	<!-- <mvc:annotation-driven conversion-service="conversionService" /> -->
 	<mvc:default-servlet-handler />
 
 	<!-- template view -->
@@ -36,7 +35,7 @@
 				<prop key="input.encoding">UTF-8</prop>
 				<prop key="output.encoding">UTF-8</prop>
 				<prop key="contentType">text/html;charset=UTF-8</prop>
-				<prop key="velocimacro.library">common/macro.vm</prop>
+				<!-- <prop key="velocimacro.library">common/macro.vm</prop> -->
 			</props>
 		</property>
 	</bean>
@@ -63,9 +62,7 @@
 			value="numberTool" />
 		<!-- Merge urlBuilderMap to view context for convenience. You can put your 
 			tools which must be thread safe. -->
-		<property
-			name="attributesMap"
-			ref="_urlBuilderMap" />
+		<!-- <property name="attributesMap" ref="_urlBuilderMap" /> -->
 		<property
 			name="contentType"
 			value="text/html;charset=UTF-8" />
@@ -73,22 +70,23 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property
-			name="defaultContentType"
-			value="text/html" />
-		<!-- not by accept header -->
+		<!-- 设置为true以忽略对Accept Header的支持 -->
 		<property
 			name="ignoreAcceptHeader"
 			value="true" />
-		<!-- by extension -->
+		<!-- 在没有扩展名时即: "/user/1" 时的默认展现形式 -->
+		<property
+			name="defaultContentType"
+			value="text/html" />
+		<!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
 		<property name="mediaTypes">
 			<map>
 				<entry
-					key="xml"
-					value="application/xml" />
-				<entry
 					key="json"
 					value="application/json" />
+				<entry
+					key="xml"
+					value="application/xml" />
 			</map>
 		</property>
 		<property name="viewResolvers">
@@ -101,6 +99,10 @@
 				<!-- for application/json -->
 				<bean
 					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+				<!-- for application/xml -->
+				<!-- <bean class="org.springframework.web.servlet.view.xml.MarshallingView" 
+					> <property name="marshaller"> <bean class="org.springframework.oxm.xstream.XStreamMarshaller"/> 
+					</property> </bean> -->
 			</list>
 		</property>
 	</bean>
