@@ -34,5 +34,4 @@ public class TestIntBeans {
 
         assertTrue(true);
     }
-
 }
