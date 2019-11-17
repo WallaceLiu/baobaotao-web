@@ -1,44 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans
-        xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xmlns:aop="http://www.springframework.org/schema/aop"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
        		http://www.springframework.org/schema/beans/spring-beans.xsd 
        		http://www.springframework.org/schema/context 
        		http://www.springframework.org/schema/context/spring-context.xsd
        		http://www.springframework.org/schema/aop 
-       		http://www.springframework.org/schema/aop/spring-aop.xsd"
-        default-autowire="byName">
+       		http://www.springframework.org/schema/aop/spring-aop.xsd
+       		http://www.springframework.org/schema/mvc
+       		http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+	default-autowire="byName">
 
-    <!-- context:component-scan 通过base-package属性配置spring需要自动注入的哪个基包， 这样@Controller
-        @Service @Repository三个注解就会起作用。 -->
-    <context:component-scan base-package="com.baobaotao.web"/>
-    <!-- aop:aspectj-autoproxy 声明自动为spring容器中那些配置@aspectJ切面的bean创建代理 -->
-    <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <context:annotation-config/>
+	<!-- context:component-scan 通过base-package属性配置spring需要自动注入的哪个基包， 这样@Controller 
+		@Service @Repository三个注解就会起作用。 -->
+	<context:component-scan base-package="com.baobaotao.web" />
 
-    <bean
-            id="propertyConfigurer"
-            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property
-                name="systemPropertiesModeName"
-                value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
-        <property
-                name="ignoreResourceNotFound"
-                value="true"/>
-        <property name="locations">
-            <list>
-                <value>classpath:conf/app.properties</value>
-                <value>classpath:conf/db.properties</value>
-                <value>classpath:conf/jdbc.properties</value>
-            </list>
-        </property>
-    </bean>
+	<!-- aop:aspectj-autoproxy 声明自动为spring容器中那些配置@aspectJ切面的bean创建代理 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
 
-    <import resource="classpath:spring-config-servlet.xml"/>
-    <import resource="classpath:spring-config-dao.xml"/>
-    <import resource="classpath:spring-intbean.xml"/>
-    <import resource="classpath:spring-di.xml"/>
+	<context:annotation-config />
+
+	<bean
+		id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property
+			name="systemPropertiesModeName"
+			value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property
+			name="ignoreResourceNotFound"
+			value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:conf/app.properties</value>
+				<value>classpath:conf/db.properties</value>
+				<value>classpath:conf/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<import resource="classpath:spring-config-servlet.xml" />
+	<import resource="classpath:spring-config-dao.xml" />
+	<import resource="classpath:spring-intbean.xml" />
+	<import resource="classpath:spring-di.xml" />
+
 </beans>

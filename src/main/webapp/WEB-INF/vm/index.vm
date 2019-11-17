@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div>测试</div>
-	<c:out value="${str0121}"></c:out>
+	
 </body>
 </html>
 
